@@ -285,8 +285,8 @@ function add(a, b) {
 
 ```
 
-function which return function
-
+function which return function: closure
+```
 function adder(base) {
     return function(no) {
         return base + no;
@@ -298,10 +298,132 @@ var fiveAdder = adder(5);
 
 fiveAdder(2); //7
 fiveAdder(3);  //8
+```
+==================================
 
-closure
+ECMA --> JavaScript Specification; versioning
 
+Most of the Browsers support ESMAScript5 --> JS 5
 
+ES 6 --> ECMAScript 6 --> ECMAScript2015
+
+ES 6 features:
+https://caniuse.com/
+
+Babel
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ code into backwards-compatible JavaScript code that can be run by older JavaScript engines. 
+Tracuer
+
+Features:
+1) new template string: tick; can have multiline string; variable interpolation
+
+`
+                    <div class="card">
+                        <div class='card-header'>
+                                ${e.name}
+                        </div>
+                        <div class='card-body'>
+                                ${e.price}, ${e.category}
+                            </div>
+                    </div>
+`
+
+2) scope variables and constants using "let" and "const"
+
+const PI = 3.14159;
+
+```
+var g = 100; // global variable
+
+function doTask() {
+    var a = 10;
+    if(g > a) {
+        let b = 25;
+        console.log(g, a, b);
+    }
+    console.log(g, a, b); // b is not visible here
+}
+
+doTask();
+
+Code in ES 6 might look like:
+
+var g = 100; // global variable
+
+function doTask() {
+    var a = 10;
+    if(g > a) {
+        var _ref = (
+                var b = 25;
+                return {
+                    b: b
+                }
+        )();
+        console.log(g, a, _ref.b);
+    }
+    console.log(g, a, b); // b is not visible here
+}
+
+doTask();
+
+````
+
+IIFE --> Immediate Invoke Function Expression ()();
+Module system to introduce the concept of visibility in JS
+
+```
+    var ShopModule = (
+        var data = ....
+        function add() { ...}
+        function computeTotal() {...}
+        return {
+            add,
+            data
+        }
+    )();
+    ShopModule.data;
+    ShopModule.add(...)
+    ShopModule.computeTotal(); // error
+    var CustomerModule = (
+        var data = ....
+        function add() { ...}
+        function delete() {...}
+        return {
+            add,
+            data,
+            delete
+        }
+    )();
+CustomerModule.data
+CustomerModule.add()
+CustomerModule.delete()
+
+```
+
+3) Destructuring and Rest operators
+3.1) Objects
+var product = {"id": 523, "name": "Oppo", "price": 15000.00, "category": "mobile"};
+Traditional way:
+console.log(product.name, product.price);
+
+ES 6 way:
+
+let {name,price} = product;
+console.log(name, price);
+
+3.2) array
+let colors = ["red", "green", "blue", "orange", "pink"];
+Traditional way:
+console.log(colors[0], colors[1]);
+
+ES 6 way:
+
+let [r,g,...others] = colors;
+console.log(r, g); // red, green
+
+//others ["blue", "orange", "pink"];]
+
+Resume @ 4:00
 
 
 

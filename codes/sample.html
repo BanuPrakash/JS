@@ -27,16 +27,16 @@
 
         console.log("********");
         function toCard(e) {
-            return `
-                <div class="card">
-                       <div class='card-header'>
-                            ${e.name}
-                       </div>
-                       <div class='card-body'>
-                            ${e.price}, ${e.category}
+                return `
+                    <div class="card">
+                        <div class='card-header'>
+                                ${e.name}
                         </div>
-                </div>
-            `
+                        <div class='card-body'>
+                                ${e.price}, ${e.category}
+                            </div>
+                    </div>
+                `
         }
         var cards = map(products, toCard)
 
