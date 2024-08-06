@@ -259,22 +259,47 @@ HOF: high Order functions are
 2) function which return function
 
 
-filter(elems, predicate)
-var result = [];
-    for eache elem in elems
-        if predicate[elem]
-            result.push(elem)
+Any execution which happens in Virtual environment like JVM / Java Script engine / MVM ; we create objects --> heap area;
+Garbage collectiors --> low priority thread are responsible for cleaning up un-used objects;
+Another reason why we can't use pointers in these languages
 
-return result;
 
-function isEven(elem) {
-    return elem %2 === 0;
+Short term GC --> for Eden Area / New Generation
+Long term GC --> Old Generation
+
+
+filter --> subset
+map --> transform
+
+https://rxmarbles.com/
+
+```
+   Output of :
+   
+function add(a, b) {
+   return 
+    a + b;
+}
+ 
+ let res = add(4,5); // undefined
+
+```
+
+function which return function
+
+function adder(base) {
+    return function(no) {
+        return base + no;
+    }
 }
 
 
+var fiveAdder = adder(5);
 
+fiveAdder(2); //7
+fiveAdder(3);  //8
 
-
+closure
 
 
 

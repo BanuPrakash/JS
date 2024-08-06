@@ -4,3 +4,21 @@ function forEach(elems, action) {
         action(elems[i]);
     }
 }
+
+function filter(elems, predicate) {
+    var result = [];
+        forEach(elems, function(e) {
+            if(predicate(e)) {
+                result.push(e);
+            }
+        });
+    return result;
+}
+
+function map(elems, transformFn) {
+    var result = [];
+    forEach(elems, function(e) {
+            result.push(transformFn(e));
+    });
+return result;
+}
