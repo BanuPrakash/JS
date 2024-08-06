@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function doTask() {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                   // resolve("products data....");
+                   reject("Not found")
+                }, 2000);
+            })
+        }
+
+        // var result = doTask();// synchronous
+        doTask().then(
+            function(result) {
+                console.log("resolved " , result);
+            },
+            function(error) {
+                console.log("boom :-(", error)
+            }
+        );
+
+        console.log("End!!!"); // not blocked
+    </script>
+</body>
+</html>

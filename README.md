@@ -423,7 +423,54 @@ console.log(r, g); // red, green
 
 //others ["blue", "orange", "pink"];]
 
-Resume @ 4:00
+var myMod = (
+    function() {
+        var data = 10;
+        return {
+            data
+        }
+    }
+)();
+myMod.data;
+
+4) Spread operator to add
+  var products = [
+            {"id": 523, "name": "Oppo", "price": 15000.00, "category": "mobile"},
+            {"id": 86, "name": "Onida", "price": 12000.00, "category": "tv"},
+            {"id": 523, "name": "iPhone", "price": 95000.00, "category": "mobile"},
+            {"id": 523, "name": "Samsung OLED", "price": 315000.00, "category": "tv"},
+            {"id": 523, "name": "Wacom", "price": 4000.00, "category": "computer"},
+            {"id": 523, "name": "Nothing", "price": 12000.00, "category": "mobile"}
+];
+
+var data = [...products, {"id": 4, "name": "A", "price": 222}];
+https://immutable-js.com/
+https://immerjs.github.io/immer/
+
+---
+
+var p = {"id": 523, "name": "Oppo", "price": 15000.00, "category": "mobile"};
+
+let ref = p; // reference
+ref.price = 100;
+
+console.log(p.price); // 100
+
+let clone = {...p}; // clone
+clone.price = 9999;
+
+console.log(p.price); //100
+
+================
+
+5) Promise for exeuting asynchronous operations
+
+getConnection().then(
+    con => getProjects(con)
+    .then(projects => getEmployees(projects)
+    .then(employees => getEmails())
+    .then(email => sendEmail(..))
+)
 
 
 
