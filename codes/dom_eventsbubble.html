@@ -56,14 +56,14 @@
     for (elem of elems) {
       elem.addEventListener("click", function (evt) {
         console.log("CAPTURE : ", evt.currentTarget.tagName);
-     
+      //  evt.stopPropagation();
       }, true);
     }
 
     for (elem of elems) {
       elem.addEventListener("click", function (evt) {
         console.log("BUBBLE : ", evt.currentTarget.tagName);
-        evt.stopPropagation();
+       evt.stopPropagation();
       });
     }
   </script>
