@@ -1,4 +1,5 @@
-let {add, filter} = require('../src/lib')
+
+let {add, filter, forEach} = require('../src/lib')
 
 // Assemble
 describe("testing libraries", () => {
@@ -23,7 +24,11 @@ describe("testing libraries", () => {
     });
 
     it("test forEach ", () => {
-
+        let actionMock = jest.fn(); // dependency for forEach
+        var data = [4,5,1,2,9,8];
+        forEach(data, actionMock);
+        console.log(actionMock.mock.calls)
+        expect(actionMock.mock.calls).toHaveLength(6);
     });
 
 })

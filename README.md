@@ -713,4 +713,60 @@ AAA ==> Assemble Action Assert
   },
 
 
+Code Coverage: jest --coverage
 
+================================
+
+JS build tools:
+* Grunt
+* Gulp
+* Webpack
+* vite
+
+Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as minification, compilation, unit testing, and linting. It uses a command-line interface to run custom tasks defined in a file
+
+
+=======
+
+1) webpack-basic> npm init --y
+
+2) install dependencies:
+
+npm i webpack webpack-cli css-loader style-loader html-webpack-plugin clean-webpack-plugin babel-loader @babel/core @babel/preset-env -D
+
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ code into backwards-compatible JavaScript code that can be run by older JavaScript engines. 
+
+ECMAScript 2015+ ---> ES 5 target
+
+Babel supports ES 6 /ECMAScript 2015+ module system
+
+instead of
+let {forEach, filter, map} = require('./lib'); 
+
+we use 
+
+import {forEach, filter, map} from './lib'
+
+import 'logo.png' ===> file-loader
+
+
+import './styles.css' --> css-loader
+
+
+babel-loader @babel/core @babel/preset-env
+
+import {forEach, filter, map} from './lib' ===> babel-loader
+gives the loaded file to @babel/core ==> Compiler / Transcompiler
+
+@babel/preset-env
+* Syntax transform
+* polyfills
+
+
+@babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s)
+
+https://www.npmjs.com/package/core-js
+
+======
+
+Resume @ 4:00
