@@ -1,0 +1,30 @@
+// HOF
+// private 
+
+function add(x, y) {
+    return x + y;
+}
+
+export default function forEach(elems, action) {
+    for(i = 0; i < elems.length; i++) {
+        action(elems[i]);
+    }
+}
+
+export function filter(elems, predicate) {
+    var result = [];
+        forEach(elems, function(e) {
+            if(predicate(e)) {
+                result.push(e);
+            }
+        });
+    return result;
+}
+
+export function map(elems, transformFn) {
+    var result = [];
+    forEach(elems, function(e) {
+            result.push(transformFn(e));
+    });
+return result;
+}

@@ -769,4 +769,38 @@ https://www.npmjs.com/package/core-js
 
 ======
 
-Resume @ 4:00
+babel.config.js or .babelrc or babel.config.json
+
+```
+module.exports = {
+    presets: [
+        '@babel/preset-env'
+    ]
+}
+```
+
+ npm run dev
+
+> webpack-basic@1.0.0 dev
+> webpack --mode development
+
+asset bundle.f8b2bc99.js 8.87 KiB [emitted] [immutable] (name: main)
+runtime modules 670 bytes 3 modules
+cacheable modules 3.83 KiB
+  ./src/index.js 1.31 KiB [built] [code generated]
+  ./src/lib.js 496 bytes [built] [code generated]
+  ./src/Person.js 2.04 KiB [built] [code generated]
+webpack 5.93.0 compiled successfully in 389 ms
+
+---
+
+npm run prod
+
+> webpack-basic@1.0.0 prod
+> webpack --mode production
+
+asset bundle.7e4a25af.js 2.32 KiB [emitted] [immutable] [minimized] (name: main)
+orphan modules 2.53 KiB [orphan] 2 modules
+./src/index.js + 2 modules 3.83 KiB [built] [code generated]
+webpack 5.93.0 compiled successfully in 397 ms
+
