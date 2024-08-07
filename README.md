@@ -602,7 +602,74 @@ let event = new CustomEvent("add-user", {});
 
 ============
 
+NodeJS
+Platform built on top of V8 JS engine and Libuv libraries for Async support like execution of Promise / interval / netwrok similar to what WebApi provided
 
+
+Why nodejs?
+1) build Traditional Web applications like Servlets / PHP / ASP.NET / Django .
+
+2) build RESTful WS
+
+3) GraphQL
+
+4) Streaming platform
+
+5) ChatBot
+
+6) Client side web application development
+
+
+Challenges while building Client side web application development:
+1) We can choose to write the code in TypeScript, CoffeeScript, LiveScript, DART or latest version of JS
+
+let name:string = "Tim";
+name = 44; // error
+
+2) Unit testing
+3) Integration testing
+4) E2E testing
+5) Static Code analysis 
+6) Minify and Uglify the code
+
+```
+function _d(){var a = 10;if(g > a) {var _ref = (var b = 25;return {b: b})();
+  _d()
+```
+7) bundle
+Customer.js
+Product.js
+Order.js
+Payment.js
+.... => minimum of 50+ js modules will be there
+
+<script src="Customer.js"> </script>
+<script src="Product.js"> </script>
+<script src="Order.js"> </script>
+<script src="Payment.js"> </script>
+
+instead:
+<script src="bundle.js"> </script>
+
+How does a node project looks like?
+
+package.json --> like pom.xml
+file where we configure depenencies reqired for the project, script
+
+node_modules
+
+*.js
+
+===
+npm init --y
+
+npm --> node package manager comes by default with NodeJS installation
+--> used to download dependencies, run scripts, publish
+yarn , PNPM ,RUSH, lerna, ... alternate
+
+npm i lodash
+
+======
 
 
 
