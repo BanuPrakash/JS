@@ -661,15 +661,46 @@ node_modules
 *.js
 
 ===
+create a NodeJs Project:
+
 npm init --y
 
 npm --> node package manager comes by default with NodeJS installation
 --> used to download dependencies, run scripts, publish
 yarn , PNPM ,RUSH, lerna, ... alternate
 
+npm install lodash 
+or
 npm i lodash
 
-======
+"lodash": "4.17.21" --> exact version
+
+"lodash": "^4.17.21" --> any latest version >= 4.17.21
+
+"lodash": "~4.17.21" --> major version has to be "4", minor and patch can latest
+
+npm i jest -D
+
+
+https://www.npmjs.com/
+
+================
+
+JS Module System:
+1) IIFE
+2) CommonJS module System --> default used by nodejs
+module.exports
+and 
+require ---> import
+
+
+3) ESM --> ECMAScript Module 
+4) AMD --> Asynchronous Module Defintion
+5) SystemJS
+
+
+
+
 
 
 
