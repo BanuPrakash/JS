@@ -584,5 +584,24 @@ document.createElement("table")
 
 https://opentdb.com/api.php?amount=10
 
+Event Handling:
+
+based on Observer Observable design pattern
+
+ALL DOM elements are Observable
+
+DOM elements generate various events like click, mousemove, change, keypress, ... focus, blur.
+
+
+let event = new Event("myevent");
+
+document.dispatchEvent(event);
+
+
+let event = new CustomEvent("add-user", {});
+
+============
+
+
 
 
