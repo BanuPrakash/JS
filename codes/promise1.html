@@ -18,9 +18,11 @@
 
         // var result = doTask();// synchronous
         doTask().then(
+            // resolve
             function(result) {
                 console.log("resolved " , result);
             },
+            // reject
             function(error) {
                 console.log("boom :-(", error)
             }

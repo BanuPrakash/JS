@@ -472,5 +472,117 @@ getConnection().then(
     .then(email => sendEmail(..))
 )
 
+WebApi: Promise, setTimeout, setInterval
+
+
+===========
+
+
+Recap:
+* JS engine, Stack, WebApi / Libuv, CallbackQueue [Micro Task Queue, Macro Task Queue], Event Loop
+* OOP :  Object, functional cosntructor , JSON
+* call, apply and bind methods of Functional Object
+* HOF: forEach, filter, map, Closure
+* ES 6 features
+1) new template string literal using ticks ``
+2) let and const --> block level scope
+3) Destructuring
+4) Spread operators ...
+5) Promise
+6) Async and Await
+7) arrow function
+let add = (x, y) => x + y;
+8) ES6 Module
+9 ) class
+class Product {}
+
+let p = new Product();
+10) generator
+11) Proxy
+
+Promise is an object which can have one of these states
+a) pending
+b) fulfilled
+c) rejected
+
+When a new Promise object is created and called it's in pending state;
+generatlly within promise we write some async operations like fetching data from a resouce like server/ file system
+
+Promise has static methods resolve() and reject()
+
+thenable:
+```
+Promise.resolve("Product added").then( function(output) {
+    // fulfilled code
+},
+function (err) {
+    // rejected code
+});
+
+
+function doTask() {
+    return new Proomise(function (res, rej) {
+        // do some job which could be async operations like fetch from server
+        // based on status code from server 200 or 404 or 403 or 500
+        res("data from server");
+        //or
+        rej("error message") 
+    });
+}
+
+doTask().then( function(output) {
+    // fulfilled code
+},
+function (err) {
+    // rejected code
+}).catch(ex) {
+
+}. finally {
+
+};
+
+catch block
+```
+
+===================================
+
+Day 2
+
+DOM and NodeJS, Webpack
+
+DOM: Document Object Model --> when we have XML [XHMTL] --> in the form of Object tree is DOM;
+DOM is an interface; object can be Java / JS / VB Script
+
+* access DOM elements
+--> getElementById() --> single element
+--> getElementsByTagName() --> array of elements
+document.getElementsByTagName("div");
+--> querySelector()
+--> querySelectorAll()
+uses CSS Selectors
+
+document.querySelectorAll("div"); // by Tag Name
+document.querySelectorAll(".card"); // by class name
+<div class="card"></div>
+
+document.querySelector("#btn"); // by ID
+
+<input type="text" />
+<input type="text" placeholder='search by name' />
+document.querySelectorAll("input");
+
+document.querySelector("input[placeholder='search by name'");
+
+* create new DOM elements
+
+document.createElement() is a factory method to create DOM elements
+document.createElement("button")
+document.createElement("table")
+
+* remove
+* add event handling
+
+https://opentdb.com/api.php?amount=10
+
 
 
