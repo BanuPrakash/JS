@@ -699,8 +699,18 @@ require ---> import
 5) SystemJS
 
 
+=============
 
+JS Unit testing Frameworks:
+1) Jasmine [ good for web] --> default for Angular developers
+2) Mocha [good for server side api]
+3) Jest [ good for web] --> default react developers 
 
+AAA ==> Assemble Action Assert
+
+"scripts": {
+    "test": "jest"
+  },
 
 
 

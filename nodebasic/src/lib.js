@@ -1,5 +1,9 @@
 // HOF
 // private 
+
+function add(x, y) {
+    return x + y;
+}
 function forEach(elems, action) {
     for(i = 0; i < elems.length; i++) {
         action(elems[i]);
@@ -26,6 +30,7 @@ return result;
 
 // CommonJS module system
 module.exports = {
+    add,
     forEach,
     filter,
     map
