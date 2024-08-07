@@ -804,3 +804,12 @@ orphan modules 2.53 KiB [orphan] 2 modules
 ./src/index.js + 2 modules 3.83 KiB [built] [code generated]
 webpack 5.93.0 compiled successfully in 397 ms
 
+
+npm i webpack-dev-server -D
+
+npm start
+
+npm test
+
+npm run prod
+npm run dev

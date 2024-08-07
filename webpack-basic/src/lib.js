@@ -6,7 +6,7 @@ function add(x, y) {
 }
 
 export default function forEach(elems, action) {
-    for(i = 0; i < elems.length; i++) {
+    for(var i = 0; i < elems.length; i++) {
         action(elems[i]);
     }
 }

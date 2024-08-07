@@ -1,8 +1,10 @@
 let webpack = require('webpack'); //installed
 let path = require('path'); // nodejs built-in
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // configuration
 module.exports = {
+    "devtool": "cheap-module-source-map",
     "entry": './src/index.js',
     "output": {
         path: path.resolve(__dirname, "dist"),
@@ -27,5 +29,11 @@ module.exports = {
           '.jsx',
           '.js'
         ]
-      }
+      },
+      devServer: {
+        port: 9000
+      },
+      plugins: [new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, "public/index.html")
+      })],
 }
