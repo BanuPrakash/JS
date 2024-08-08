@@ -922,6 +922,26 @@ create-react-app usersapp
 New:
 npx create-react-app usersapp
 
+Thinking in React:
+
+1) Atom
+Button, Label, Image, Input, ....
+Re-usable components
+2) Molecule
+3) Organism
+4) Template
+5) Page
+
+React Components:
+1) React.createElement
+2) Functional components is a js function which returns JSX
+3) Class Component --> inherit from Component / PureComponent
+and override render() method
+render() -> returns JSX
+
+Class Component: can have state and behaviour
+
+
 
 
 
