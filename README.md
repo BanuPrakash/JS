@@ -978,9 +978,18 @@ getByAltText
 
 E2E testing
 npm i cypress -D
+package.json
+ "e2e": "cypress open"
+
 server should be running
 npm start
 another terminal:
+npm run e2e
+
+edit cypress.config.js
+add
+tests in e2e folder
+restart
 npm run e2e
 
 
