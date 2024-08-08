@@ -5,8 +5,8 @@ import Filter from './Filter'
 
 export default class UserList extends Component {
     state = {
-        users: friends,
-        complete: friends
+        users: [...friends],
+        complete: [...friends]
     }
     constructor(props) {
         super(props);
