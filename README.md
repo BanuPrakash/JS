@@ -974,6 +974,19 @@ screen.queryByText(/Users Application/);
 
 getByAltText
 
+=====================
+
+E2E testing
+npm i cypress -D
+server should be running
+npm start
+another terminal:
+npm run e2e
+
+
+
+
+
 
 
 
