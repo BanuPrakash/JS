@@ -911,6 +911,22 @@ JSX
 
 https://github.com/chentsulin/awesome-react-renderer
 
+==============
+
+create-react-app ==> scaffolding code built using webpack, adds React and react-dom libraries
+
+Old versions:
+npm i create-react-app -g
+create-react-app usersapp
+
+New:
+npx create-react-app usersapp
+
+
+
+
+
+
 
 
 
