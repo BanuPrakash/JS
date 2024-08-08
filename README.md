@@ -813,3 +813,104 @@ npm test
 
 npm run prod
 npm run dev
+
+==============
+
+
+Recap:
+
+DOM
+NodeJS: package.json, node_modules
+
+only executable dependencies can be kept global 
+/users/<<username>>
+
+below command will download all depdencies configured in package.json
+npm install or npm i
+
+webpack: java script build tool to automate --> compiler, unit testing, linting, bundle, ...
+
+* babel.config.js --> configure presets
+* webpack.config.js --> entry, output, rules for loaders, ....
+
+===
+
+Day 3 : React
+
+Client side rendering
+* Web application --> JS
+1) DOM 
+2) jQuery library simplified DOM usage
+
+$("div") --> document.querySelectorAll("div");
+$("<div/>") --> document.createElement("div");
+
+XmlHttpRequest to make API calls
+$.getJSON()
+
+3) Templates
+
+3.1) Underscore 
+3.2) jquery template
+3.3) Mustache
+3.4) Handlebars
+3.5) PUG
+3.6) JADE
+3.7) Knockout
+....
+
+Handlebars Example:
+```
+Data:
+{
+  people: [
+    "Yehuda Katz",
+    "Alan Johnson",
+    "Charles Jolley",
+  ],
+}
+Template:
+
+<ul class="people_list">
+  {{#each people}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+
+Output:
+<ul class="people_list">
+    <li>Yehuda Katz</li>
+    <li>Alan Johnson</li>
+    <li>Charles Jolley</li>
+</ul>
+```
+
+4) Single Page Applications --> SPA
+MVC Architecture
+Model View Controller
+
+4.1) Backbone library: they gave Model and Controller support; for view we could pick any of the above templates
+
+4.2) AngularJS framework: MVC --> Google
+
+4.3) ReactJS story
+marcel laverdet facebook
+2010 --> XHP; facebook was developed using PHP
+2011 --> FaxJS --> Jorde Walk
+~2014 --> React
+OpenSource --> Sophie Alpert --> Khan's Academy
+
+======
+
+React:
+Babel --> @babel/preset-react
+
+npm i @babel/preset-react -D
+
+JSX 
+
+https://github.com/chentsulin/awesome-react-renderer
+
+
+
+

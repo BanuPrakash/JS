@@ -1,6 +1,8 @@
 import forEach,{ filter, map } from "./lib";
 import Person from "./Person";
 
+import './styles.css'
+
 let p = new Person("Raj", 26);
 console.log(p.getName (), p.getAge());
 
@@ -44,3 +46,23 @@ var names = map(products, function(p) {
 })
 console.log(names);
 
+console.log("*********React code*********")
+
+let React = {
+    createElement: (tag, props, ...children) => {
+        var element = {tag, props: {...props, children }};
+        return element;
+    }
+}
+// JSX
+let ProductCard  = <div className='card'>
+    <h1 className='card-header'>{products[0].name}</h1>
+    <p>
+        Rs. {products[0].price}
+    </p>
+   
+</div>
+
+console.log(ProductCard);
+
+render(ProductCard, document.getElementById("root"));
