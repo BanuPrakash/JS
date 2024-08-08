@@ -952,8 +952,27 @@ App.js
 
 <Ingredient ... />
 
+===============================
 
+Testing:
+1) Unit testing
+2) Integration testing 
+3) E2E testing
 
+RTL: React Testing library is built on top jest
+
+getByRole
+<button > ..
+screen.getByRole('button')
+screen.getAllByRole('button')
+
+getByPlaceholderText
+screen.getByPlaceHolderText('search by name');
+
+getByText
+screen.queryByText(/Users Application/);
+
+getByAltText
 
 
 
