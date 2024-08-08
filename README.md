@@ -944,7 +944,13 @@ Class Component: can have state and behaviour
 Each child in a list should have a unique "key" prop.
 https://legacy.reactjs.org/docs/reconciliation.html
 
-Resume @ 2:00
+App.js
+
+<Menu title="Delicious Recipes" />
+
+<Recipe recipe={..} key={..} />
+
+<Ingredient ... />
 
 
 
