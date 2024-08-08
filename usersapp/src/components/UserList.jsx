@@ -13,7 +13,7 @@ export default class UserList extends Component {
             <div>
                 <Filter />
                 {
-                    this.state.users.map(user => <User user={user} />)
+                    this.state.users.map(user => <User user={user} key={user.id} />)
                 }
             </div>
         )
