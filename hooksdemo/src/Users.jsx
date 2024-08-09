@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Users() {
+export default function Users({setUserId}) {
     let [users, setUsers] = useState([]);
     //componentDidMount
     useEffect(() => {
@@ -12,7 +12,10 @@ export default function Users() {
         <div>
             <h1>Users</h1>
             {
-                users && users.map(user => <h4 key={user.id}>{user.email}, {user.name}</h4>)
+                users && users.map(user => <h4
+                    onMouseOver={() => setUserId(user.id)}
+                    key={user.id}>{user.email}, {user.name}
+                </h4>)
             }
         </div>
 
