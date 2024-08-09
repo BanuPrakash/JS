@@ -1114,8 +1114,64 @@ class AgeComponent extends React.Component {
 ReactDOM.render(<ParentComponent />, document.getElementById("root"));
 ```
 
+Memoization:
+```
+function memo(Component) {
+    var propsCache = {};
+    if( newpros compare with propsCache) {
+        if same
+        return;
+    }
+    return Component(props);
+}
+```
 
+Memoization of Functional Component:
+```
+class ParentComponent extends  React.Component {
+  state = {
+    name : "Roger",
+    age : 34
+  }
+  changeAge() {
+    this.setState( {
+      age: this.state.age + 1
+    })
+  }
+  changeName() {
+    this.setState( {
+      name: this.state.name + "..."
+    })
+  }
+  render() {
+    console.log("Parent renders")
+    return <div>
+        <MemoNameComponent name = {this.state.name} /> <br />
+        <MemoAgeComponent age = {this.state.age} /> <br />
+        <button type="button" onClick={() => this.changeAge()}>Change Age </button> 
+        <button type="button" onClick={() => this.changeName()}>Change Name </button> 
+     </div>
+  }
+}
 
+let MemoNameComponent = React.memo(NameComponent);
+let MemoAgeComponent = React.memo(AgeComponent);
 
+function NameComponent({name}){
+     console.log("NameComponent renders")
+      return <div>
+          Name Component : {name}
+       </div>
+}
+
+function AgeComponent(props){
+     console.log("AgeComponent renders")
+      return <div>
+          Age Component : {props.age}
+       </div>
+
+}
+ReactDOM.render(<ParentComponent />, document.getElementById("root"));
+```
 
 
