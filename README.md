@@ -1394,6 +1394,7 @@ https://primereact.org/
 
 * font-awesome --> icons
 
+```
 <NavbarComponent />
 <ProductList />
 <ProductCard />
@@ -1402,7 +1403,7 @@ https://primereact.org/
 <CartList />
 <ProductForm />
 <Default />
-
+```
 =============
 
 boostrap --> CSS Framework for RWD
