@@ -1428,3 +1428,8 @@ npm i react-router-dom bootstrap react-bootstrap @fortawesome/react-fontawesome 
 ======
 
 https://ionicframework.com/docs/api/router
+
+===================
+
+href ==> Server Side Routing ==> whole page reloads
+link ==> Client side Routing
