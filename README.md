@@ -991,11 +991,128 @@ add
 tests in e2e folder
 restart
 npm run e2e
+=============================
+
+Day 4
+
+@babel/preset-react JSX --> JS object
+react library uses this
+React --> createElement() 
+
+Rendering ==> state --> Presentation
+react-dom
+react-native
+react-tv
+proton --> Desktop
+
+JS object ---> VDOM, any changes done will be for copy of VDOM
+Diff algorithm --> to identify what got changed --> update the actual DOM
+
+class component : state and behaviour
+
+state = {
+    x: 10,
+    y: 15
+}
+
+============
+
+class Component Life Cycle:
+
+Mounting Phase: when first time component is created
+
+constructor() ==> render() ==> componentDidMount()
+
+intialization ==> render() ==> Make API calls and update the state
+
+product: [..] ==> render() with dummy data ==> get products from API call and update the products; triggers re-rendering
+
+making API call in constructor() leads to FCP web vitals issue
+First Contentful Paint
+
+Updating Phase: whenever state/props changes --> forces reconcilliation --> re-rendering
+
+shouldComponentUpdate() --> render() --> componentDidUpdate()
+componentDidUpdate() --> Make depdendent API calls
 
 
+UnMounting Phase: when component is destroyed --> componentWillUnMount()
+suppose we have subscribed for notifications; we should unsubscribe in  componentWillUnMount()
 
+==========
 
+stackblitz, codepen, ...
 
+codepen --> Settings
+* JavaScript Preprocessor: Babel
+* https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/cjs/react.production.min.js [not Working]
+https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js [ working]
+* https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/cjs/react-dom.production.min.js
+ https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js [working]
+
+Behaviour:
+* off Auto-save and Auto-preview
+
+Example for shouldComponentUpdate()
+
+```
+class ParentComponent extends  React.Component {
+  state = {
+    name : "Roger",
+    age : 34
+  }
+  changeAge() {
+    this.setState( {
+      age: this.state.age + 1
+    })
+  }
+  changeName() {
+    this.setState( {
+      name: this.state.name + "..."
+    })
+  }
+  render() {
+    console.log("Parent renders")
+    return <div>
+        <NameComponent name = {this.state.name} /> <br />
+        <AgeComponent age = {this.state.age} /> <br />
+        <button type="button" onClick={() => this.changeAge()}>Change Age </button> 
+        <button type="button" onClick={() => this.changeName()}>Change Name </button> 
+     </div>
+  }
+}
+
+class NameComponent extends React.Component {
+  shouldComponentUpdate(prevProps, prevState) {
+      if(this.props.name === prevProps.name) {
+        return false;
+      }
+    return true;
+  }
+  render() {
+     console.log("NameComponent renders")
+      return <div>
+          Name Component : {this.props.name}
+       </div>
+  }
+}
+
+class AgeComponent extends React.Component {
+   shouldComponentUpdate(prevProps, prevState) {
+      if(this.props.age === prevProps.age) {
+        return false;
+      }
+    return true;
+  }
+  render() {
+     console.log("AgeComponent renders")
+      return <div>
+          Age Component : {this.props.age}
+       </div>
+  }
+}
+ReactDOM.render(<ParentComponent />, document.getElementById("root"));
+```
 
 
 
