@@ -1370,3 +1370,61 @@ dispatch is used to delegate action to reducer function
 {
     type: 'REST'
 }
+
+==========
+
+https://fakestoreapi.com/products?limit=5
+
+* react-router-dom
+--> different URLs different views has to be rendered
+http://localhost:3000/products
+http://localhost:3000/details/4
+http://localhost:3000/cart
+http://localhost:3000/new_product
+
+--> Lazy loading of components
+generally webpack --> creates a single bundle --> bundle.js
+
+* hooks
+* Context
+* reducers
+* bootstrap, react-bootstrap / Adobe React Spectrum and Adobe webcomponents
+https://www.telerik.com/kendo-react-ui/components/
+https://primereact.org/
+
+* font-awesome --> icons
+
+<NavbarComponent />
+<ProductList />
+<ProductCard />
+<Details />
+<CartComponent />
+<CartList />
+<ProductForm />
+<Default />
+
+=============
+
+boostrap --> CSS Framework for RWD
+using boostrap:
+<div className="container">
+</div>
+
+using react-bootstrap
+
+<Container>
+
+</Container>
+
+<Fontawesome icon="faHeart" />
+
+npx create-react-app productsapp
+
+cd productsapp
+productapp> 
+
+npm i react-router-dom bootstrap react-bootstrap @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+======
+
+https://ionicframework.com/docs/api/router
