@@ -1174,4 +1174,68 @@ function AgeComponent(props){
 ReactDOM.render(<ParentComponent />, document.getElementById("root"));
 ```
 
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+
+let userContext = new Context("avatar": window.localStorage("pic"))
+
+Context Example:
+```
+let UserContext = React.createContext();
+
+class ParentComponent extends  React.Component {
+  state = {
+    name : "Roger",
+    age : 34
+  }
+  changeAge() {
+    this.setState( {
+      age: this.state.age + 1
+    })
+  }
+ 
+  render() {
+    return <UserContext.Provider value={{name:this.state.name, age: this.state.age}}>
+        <A />
+        <button type="button" onClick={() => this.changeAge()}>Change Age </button> 
+     </UserContext.Provider>
+  }
+}
+
+class A extends React.Component {
+  render() {
+    return <B />
+  }
+}
+
+class B extends React.Component {
+  render() {
+   return <div>
+      <UserContext.Consumer>
+      {
+       value => {
+         return <div> Name : {value.name}, Age: {value.age} </div>
+       }
+     }
+        </UserContext.Consumer>
+     </div>
+     
+  }
+}
+ReactDOM.render(<ParentComponent />, document.getElementById("root"));
+```
+
+Consumers in functional Component:  <UserContext.Consumer> is valid alternatively we have a hook called useContext()
+useContext() is for Context Consumer can be used only in functional components
+React 16.8 versions introduced hooks for functional components
+
+```
+function B() {
+  let {name, age} = React.useContext(UserContext); // consumer
+  
+   return <div> 
+       Name : {name}, Age: {age} 
+     </div>
+}
+```
 
