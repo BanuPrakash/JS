@@ -1225,6 +1225,8 @@ class B extends React.Component {
 ReactDOM.render(<ParentComponent />, document.getElementById("root"));
 ```
 
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+
 Consumers in functional Component:  <UserContext.Consumer> is valid alternatively we have a hook called useContext()
 useContext() is for Context Consumer can be used only in functional components
 React 16.8 versions introduced hooks for functional components
@@ -1239,3 +1241,71 @@ function B() {
 }
 ```
 
+Class Components: state, life cycle methods
+
+Angular:
+@Component({
+    "template": <div>...,
+    "stylesUrl" :'./styles.css'
+})
+public class ProductComponent {
+
+}
+
+
+React:
+
+public class ProductComponent extends Component{
+
+}
+
+React Hooks:
+1) useState
+2) useEffect
+3) useContext
+4) useReducer
+5) useMemo
+6) useCallback
+
+1) useState hook is used to introduce state in functional component
+
+```
+function ParentComponent() {
+  let [name, setName] = React.useState("");
+  let [age, setAge] = React.useState(18);
+ 
+    return <div>
+        Name: {name} <br />
+        Age: {age} <br />
+        <button type="button" onClick={() => setAge(age + 1)}>Change Age </button> 
+     </div>
+  }
+
+```
+
+2) useEffect is a hook to introduce component life cycle methods in functional component
+
+```
+    function SampleComponent {
+        // same as componentDidMount
+        useEffect(() => {
+            ...
+
+            return () => console.log("unmount"); <-- similar to componentWillUnMount
+        }, []);
+
+        // similar to componentDidUpdate
+        useEffect(() => {
+            ...
+        });
+
+        // gets called when name changes
+        useEffect(() => {
+            ...
+        }, [name]);
+    }
+
+```
+
+npx create-react-app hooksdemo
+npm i bootstrap
