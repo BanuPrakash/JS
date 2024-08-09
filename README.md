@@ -1310,3 +1310,63 @@ function ParentComponent() {
 npx create-react-app hooksdemo
 npm i bootstrap
 
+====================
+
+Rules of Hooks:
+1) can't use it in class components
+2) use it at the top level of functional components
+3) can't use it inside event handlers/ conditional statement /try-catch
+4) one hook can use another hook(s)
+
+--------
+
+useReducer() hook should be used instead of useState() if mutation depends on previous state and conditionally mutate the state
+
+```
+{
+    cartItems: [{},{}],
+    total: computed,
+    quantity: 0
+}
+
+
+Action Objects:
+{
+    type:'type_of_action',
+    payload?: <body>
+}
+
+Example:
+
+{
+    type:'ADD_TO_CART',
+    payload: product
+}
+
+{
+    type:'CLEAR_CART'
+}
+
+{
+    type: 'INREMENT',
+    payload: pid
+}
+Reducer function: (state, action) => new state
+
+let [state, dispatch] = useReducer(reducerFn, initialState);
+
+dispatch is used to delegate action to reducer function
+```
+
+{
+    type: 'INCREMENT',
+    payload: 10
+}
+
+{
+    type: 'DECREMENT'
+}
+
+{
+    type: 'REST'
+}
