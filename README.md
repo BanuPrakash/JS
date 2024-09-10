@@ -648,5 +648,22 @@ document.getElementsByTagName("p"); gets all paragraphs
 document.querySelector(".tmpl-headerNavItem_label").innerHTML = '<h1>JS Training</h1>'
 * querySelectorAll() 
 
+===============
+
+Event Handling:
+https://www.w3schools.com/jsref/dom_obj_event.asp
+
+register and unregister
+
+```
+<button id="btn">Task</button>
+
+function doTask() {..}
+
+document.getElementById("btn").addEventListener("click", doTask);
+
+document.getElementById("btn").removeEventListener("click", doTask);
+
+```
 
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DOM Events</h1>
+
+    <select id="clr">
+        <option value="-1">Select</option>
+        <option value="red">Red Color</option>
+        <option value="lavender">Lavender Color</option>
+        <option value="tomato">Tomato Color</option>
+    </select>
+
+    <script>
+        document.getElementById("clr").addEventListener("change", (evt) => {
+            // console.log(evt.target.selectedIndex);
+            if (evt.target.selectedIndex !== 0) {
+                document.bgColor = document.getElementById("clr").options[evt.target.selectedIndex].value;
+            }
+        })
+    </script>
+</body>
+
+</html>
