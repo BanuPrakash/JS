@@ -147,8 +147,175 @@ Event loop empties the MicroTask queue and then takes functions pushed in macrot
 
 Promise is for executing ayschronous code execution.
 
+Any asynchrous APIs are executed by WebAPI in Browser and by LibUV in nodeJS
+result functions are pushed onto callback queue [ MiroTask Queue and MacroTask Queue]
+Event loop takes functions from MiroTask Queue one byone and pushes it to Stack for execution. On MicroTask empty it processes Macrotask Queue.
+
+Timers and event handling --> Macro Task Queue
+Promise, requestFrameAnimation,... --> Micro Task Queue
+
+==========================
+
+JS functions:
+All functions are inherited from Function which extends Object.
+functions are decalared with keyword function
+
+Examples:
+```
+1)
+function add(x, y) {
+    return x + y;
+}
+
+var res = add(4,5); // 9
+
+2) 
+function add(x, y) {
+    console.log(x + y); // 9
+}
+
+var res = add(4,5); 
+res will be undefined; default return type of a function is "undefined"
+
+3) 
+function add(x, y) {
+    return 
+        x + y;
+}
+
+var res = add(4,5); // undefined
+JS engine will creating an AST treates "return" by itself as valid token and works like return;
+semi-colon insertion after return
+x + y; is unreachable code
+
+4)
+var add = new Function("x", "y", "return x + y")
+add(5,6);
+
+```
+
+OOP with JS:
+
+1) 
+```
+var obj = new Object(); //rarely we create objects like this
+add members
+obj.x= 10;
+obj.y = 15;
+obj.area = function() {
+    return this.x * this.y;
+}
+
+console.log(obj.area()); 
+```
+
+2) Function constructor
+
+```
+function Product(name, price) {
+    this.name = name; //state
+    this.price = price; //state
+}
+
+// adding behaviour
+Product.prototype.setPrice = function(p) {
+    this.price = p;
+}
+
+Product.prototype.getPrice = function() {
+    return this.price;
+}
+
+Product("iPhone 15", 89000.00); // not to be used; this will be "window" --> window name and window price is set
+
+var p = new Product("iPhone 15", 89000.00);
+
+console.log(p.getPrice());
+p.setPrice(78000.21);
+console.log(p.getPrice());
+
+Check:
+String.prototype
+Date.prototype
+
+```
+
+3) JSON --> JavaScript Object notation; it's a key/ value pair
+
+```
+var product = {
+    "name": "LG AC",
+    "price" : 45000.00
+}
+
+we can add behaviour to JSON also; generally not done; we use JSON more like a Data object to carry data from FrontEnd <---> Backend
+value can be: string, number, boolean, array, object, function, undefined, null
+```
+
+call and apply methods inheited from Function.
+
+``` 
+    // this function is not bound to any context
+    function updateName(name) {
+        this.name = name;
+    }
+
+    var product = {
+        "name": "LG AC",
+        "price" : 45000.00
+    }
+
+    var emp = {
+        "name": "George",
+        "age": 45,
+        "email": "george@adobe.com"
+    }
 
 
+    updateName.call(emp, "Greg");// within updateName "this" refers to "emp"
+    updatename.call(product, "Samsung AC"); // within updateName "this" refers to "product"
+
+    update.apply(emp, ["Greg"]);
+
+```
+
+bind:
+
+```
+var product = {
+    "name": "LG AC",
+    "price" : 45000.00,
+    "getName": function() {
+        return this.name;
+    }
+}
+
+console.log(product.getName()); // LG AC
+
+var ref = product.getName; // function definition, here context is lost
+
+console.log(ref()); // invoke the function; without "use strict"; it give "name" of window, with "use strict" we get error
+
+Solution:
+var ref = product.getName.bind(product); // bind the context so that "this" refers to product
+ console.log(ref()); // LG AC
+```
+
+Functional Style of Programming using High Order Function:
+HOF is one
+* function accepts function as argument
+* function returns a function
+
+HOF are more used to acheive Open Close Principle. Functions which are closed for change, open for extension
+
+commonly used HOF are: filter, map, forEach, limit, skip, reduce, ...
+
+filter --> to get a subset
+map --> transform data
+forEach --> iteration
+reduce --> aggregate [max, min, avg, count]
+
+https://rxmarbles.com/
 
 
 

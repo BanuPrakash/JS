@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="lib.js"></script>
+    <script>
+        let nums = [5, 2, 6, 9, 8, 12, 3];
+        let products = [
+            {"name": "iPhone 16", "price": 89000.00, "category": "mobile"},
+            {"name": "Sony Bravia", "price": 235000.00, "category": "tv"},
+            {"name": "Wacom", "price": 5200.00, "category": "computer"},
+            {"name": "OnePlus 15", "price": 75000.00, "category": "mobile"},
+            {"name": "LG OLED", "price": 125000.00, "category": "tv"},
+            {"name": "Logitech Mouse", "price": 789.00, "category": "computer"}
+        ];
+        forEach(nums, console.log); // action ---> console.log
+     //   forEach(nums, alert); // action ---> alert
+
+        let mobiles = filter(products, function isMobile(p) {
+            return p.category === 'mobile'
+        });
+
+        forEach(mobiles, console.log);
+
+        let evens = filter(nums, function isEven(e) {
+            return e % 2 === 0;
+        })
+        forEach(evens, console.log);
+
+        console.log("**************");
+
+        var names = map(products, function(p) {
+            return p.name;
+        });
+
+        console.log(names); 
+
+        function toCard(product) {
+            return `
+                <div class="card">
+                    <div class="card-header">
+                        ${product.name}
+                    </div>
+                    <div class="card-body">
+                        ${product.price}
+                    <div>
+                </div>
+
+            `
+        }
+        var cards = map(products, toCard);
+        forEach(cards, console.log);
+
+
+    </script>
+</body>
+
+</html>
