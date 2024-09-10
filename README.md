@@ -554,7 +554,77 @@ app.post('/performAction', async (req, res) => {
 });
 ```
 
+7) Destructuring
+7.1) Object
 
+```
+let product =  {"name": "iPhone 16", "price": 89000.00, "category": "mobile"};
+
+let {name, price} = product;
+name and price will be local variable
+console.log(name, price); instead of
+console.log(product.name, product.price);
+```
+
+7.2) array
+
+```
+let colors = ["red", "green", "blue", "pink", "lavendar"];
+
+let [r,g, ...others] = colors;
+
+console.log(r);  // red
+console.log(g); // green
+console.log(others); ["blue", "pink", "lavendar"]
+
+instead of older way:
+console.log(colors[0]);
+console.log(colors[1]);
+```
+
+8) Clone
+8.1) clone object
+```
+let product =  {"name": "iPhone 16", "price": 89000.00, "category": "mobile"};
+
+let ref = product; // reference to same location
+ref.price = 9999;
+
+console.log(product.price); // 9999
+
+Clone:
+
+let prd = {...product};
+
+prd.price = 8888;
+will not change product.price
+
+```
+
+8.2) clone array
+
+```
+let nums = [4,2,55,1];
+
+let copy = [...nums]; //clone
+copy[0] = 8122;
+console.log(nums[0]); // 4
+```
+
+9) ESM --> ECMAScript Module System
+10) Proxy, Reflect
+
+11) rest operators
+```
+for varargs --> 0 to n
+function add(...args) {
+
+}
+
+add();
+add(4,5);
+add(5,1,4,11,1);
+```
 
 
 
