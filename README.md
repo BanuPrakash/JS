@@ -476,7 +476,83 @@ if API calls is failuter: 404, 400, 403, 500 --> return rejected
 
 ASynchronous --> Concurrent execution
 
+6) async and await
+alternate to Promise --> Syntactical sugar coating on Promise to avoid callback hell
 
+Call back Hell:
+```
+// Step 1: Receives request from the user
+app.post('/performAction', (req, res) => {
+  authenticateUserPromise(req.body.username, req.body.password)
+    .then((isAuthenticated) => {
+      if (!isAuthenticated) {
+        res.status(401).send('Authentication failed');
+        return Promise.reject();
+      }
+
+      // Step 3: Check authorization level of user
+      return checkAuthorizationPromise(req.body.username);
+    })
+    .then((isAuthorized) => {
+      if (!isAuthorized) {
+        res.status(403).send('User not authorized');
+        return Promise.reject();
+      }
+
+      // Step 4: Perform the action
+      return performActionPromise(req.body.actionData);
+    })
+    .then(() => {
+      // Step 5: Send Notification E-mail
+      return sendNotificationEmailPromise(req.body.username);
+    })
+    .then(() => {
+      // Step 6: Send response back to the user browser
+      res.status(200).send('Action performed successfully');
+    })
+    .catch((error) => {
+      console.error('An error occurred:', error);
+      res.status(500).send('An error occurred');
+    });
+});
+
+```
+
+can be converted into async await:
+
+```
+// Step 1: Receives request from the user
+app.post('/performAction', async (req, res) => {
+  try {
+    const isAuthenticated = await authenticateUserPromise(req.body.username, req.body.password); //blocked
+
+    if (!isAuthenticated) {
+      res.status(401).send('Authentication failed');
+      return;
+    }
+
+    // Step 3: Check authorization level of user
+    const isAuthorized = await checkAuthorizationPromise(req.body.username); // blocked
+
+    if (!isAuthorized) {
+      res.status(403).send('User not authorized');
+      return;
+    }
+
+    // Step 4: Perform the action
+    const result = await performActionPromise(req.body.actionData); // blocked
+
+    // Step 5: Send Notification E-mail
+    await sendNotificationEmailPromise(req.body.username); //blocked
+
+    // Step 6: Send response back to the user browser
+    res.status(200).send('Action performed successfully'); 
+  } catch (error) {
+    console.error('An error occurred:', error);
+    res.status(500).send('An error occurred');
+  }
+});
+```
 
 
 
