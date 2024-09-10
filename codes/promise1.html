@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function successFn(data) {
+            console.log("Success ", data)
+        }
+
+        function rejectFn(err) {
+            console.log("Boom :-( ", err)
+        }
+
+        function doTask() {
+            return new Promise( (resolve, reject) => {
+                setTimeout(() => {
+                        resolve("products data!!!");
+                }, 2000);
+            });
+        }
+
+        doTask().then(successFn, rejectFn); // non blocking
+        console.log("End!!!");
+    </script>
+</body>
+</html>

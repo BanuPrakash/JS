@@ -353,3 +353,134 @@ getProduct(2) --> Web Server --> Spring boot --> database --> result is converte
 getProduct(2) --> get from Cache
 
 ```
+
+Day Part 1:
+* JS, JS engine
+* Macro Task Queue and Micro Task Queue
+* Event loop, stack
+* OOP: function constructor, JSON
+* call, apply
+* bind
+* HOF : map, filter, forEach
+* HOF: closure, memoization pattern
+
+=========================================
+
+ES6 --> ECMAScript 2015 --> JS version 6 new features.
+Most of the engines support this version as of now. 
+In case if the engines doesn't support this version we can use transcompiler / transpiler like BABEL and Tracuer
+
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ code into backwards-compatible JavaScript code that can be run by older JavaScript engines.
+
+1) using let and const for block level scope members
+
+```
+function doTask() {
+    var a = 20;
+    if( g > a ) {
+        let b = 30; // block scope
+    }
+     console.log(g, a, b, c); // b is not visible, a is visible
+}
+
+doTask();
+
+const PI = 3.14159; 
+PI = 4.1; // error
+
+```
+
+2) Arrow functions
+
+```
+ let evens = filter(nums, function isEven(e) {
+            return e % 2 === 0;
+ });
+
+ gets changed to:
+ let evens = filter(nums, e => e % 2 === 0)
+
+ ----
+let add = (x, y ) =>  {
+    return x + y;
+};
+can be written also as:
+let add = (x, y ) =>  x + y;
+
+```
+3) Template String: --> allows multiline string and can use Expression for interpolation/ dynamic content
+
+using ticks
+```
+let card = `
+                <div class="card">
+                    <div class="card-header">
+                        ${product.name}
+                    </div>
+                    <div class="card-body">
+                        ${product.price}
+                    <div>
+                </div>
+
+            `
+
+```
+
+4) class instead of function constructor
+
+```
+    class Product {
+        name; // state
+        price; // state
+        constructor(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(n) {
+            this.price = n;
+        }
+    }
+
+let p = new Product("Macbook", 245000.00);
+
+```
+
+5) Promise API for asynchronous execution on a seperate thread
+Promise has these states: pending, fulfilled, rejected
+
+pending --> fulfilled
+pending --> rejected
+
+if doTask() is synchronous
+var res = doTask(); // blocking code, lines below this are not executed
+
+assume doTask() returns a Promise
+
+doTask().then(f1, f2); // non blocking
+
+f1 is a function which gets executed if promise is fulfilled
+f2 is a function which gets executed if promies is rejected
+
+we can make API calls to server using Promise. --> pending
+if API call is success SC : 200 --> return resolved --> fulfilled
+if API calls is failuter: 404, 400, 403, 500 --> return rejected 
+
+ASynchronous --> Concurrent execution
+
+
+
+
+
+
+
+
+
