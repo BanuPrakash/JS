@@ -319,5 +319,37 @@ https://rxmarbles.com/
 
 
 
+HOF: function returns a function
 
+```
+    function adder(no) {
+        return function(arg) {
+            return no  + arg;
+        }
+    }
 
+var fiveAdder = adder(5);
+
+var tenAdder = adder(10);
+
+console.log(fiveAdder(2)); // 7 
+console.log(fiveAdder(4)); // 9
+
+console.log(tenAdder(2)); // 12
+
+```
+
+Closure: whenever an outer function returns a function; returned function can have access to all the members of outer function --> closure
+
+memoization or memoisation is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls to pure functions and returning the cached result when the same inputs occur again.
+
+```
+getProduct(5) --> Web Server --> Spring boot --> database --> result is converted to JSON --> return JSON
+
+getProduct(5) --> get from Cache
+
+getProduct(2) --> Web Server --> Spring boot --> database --> result is converted to JSON --> return JSON
+
+getProduct(2) --> get from Cache
+
+```

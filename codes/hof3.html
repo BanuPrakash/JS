@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // HOF memoization
+        function memo(fn) {
+            var cache = {};
+            return function(arg) {
+                if(!cache[arg]) {
+                    cache[arg] = fn(arg);
+                }
+                return cache[arg];
+            }
+        }
+        function fibanocci(no) {
+            return ((no == 0) || (no == 1))? no : fibanocci(no - 1) + fibanocci(no - 2);
+        }
+
+        var memFib = memo(fibanocci);
+
+        console.time("first");
+            console.log(memFib(34));
+        console.timeEnd("first");
+
+        console.time("sec");
+            console.log(memFib(34));
+        console.timeEnd("sec");
+    </script>
+</body>
+</html>
