@@ -626,7 +626,27 @@ add(4,5);
 add(5,1,4,11,1);
 ```
 
+===================================================
 
+DOM: Document Object Model is an language independent interface to represent XML/HTML in the form of object tree.
+
+using DOM APIs:
+* create new elements dynamically
+* remove elements
+* access DOM elements programmatically and traverse thro them
+* add event handling mechanism
+
+DOM element access:
+* getElementById()
+<h1 id="root"></h1>
+document.getElementById("root");
+
+* getElementsByTagNames()
+document.getElementsByTagName("p"); gets all paragraphs
+
+* querySelector() uses CSS selectors to access elements
+document.querySelector(".tmpl-headerNavItem_label").innerHTML = '<h1>JS Training</h1>'
+* querySelectorAll() 
 
 
 
